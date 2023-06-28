@@ -25,6 +25,11 @@
 # OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 cmake_minimum_required(VERSION 3.17)
 project(tritonthirdparty LANGUAGES C CXX)
+set(_ASAN_FLAGS "-fno-omit-frame-pointer -g3 -O0")
+set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} ${_ASAN_FLAGS}")
+set(CMAKE_LINKER_FLAGS_DEBUG "${CMAKE_LINKER_FLAGS_DEBUG} ${_ASAN_FLAGS}")
+
+
 #
 # ExternalProject Dependencies
 #
